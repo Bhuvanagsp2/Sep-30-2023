@@ -1,0 +1,52 @@
+body {
+    background-color: black;
+    padding-top: 10%;
+}
+a {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 800;
+    color: rgb(228, 228, 228);
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+.block {
+    background:linear-gradient(180deg, #000000, #111111);
+    position: relative;
+    width: 300px;
+    padding: 1rem;
+    margin: 10% auto;
+    border-radius: 30px;
+    border: 1px solid rgb(226, 226, 226);
+}
+.glowing::before {
+    content:'';
+    position:absolute;
+    left: -5px;
+    top: -5px;
+    background: linear-gradient(45deg, #a42828, #ff16ff, #8000ff, #009dff, #1a1700 ,#942525);
+    background-size: 400%;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    z-index: -1;
+    animation: animate 20s linear infinite;
+}
+@keyframes animate {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+}
+.glowing::before {
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.glowing:hover::before {
+    opacity: 100;
+}
